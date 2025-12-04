@@ -7,10 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
 
 
-@Slf4j
 public class Day8 {
 
   private record Position(int row, int col) {};

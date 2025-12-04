@@ -1,0 +1,49 @@
+package sk.araed.aoc.aoc2025;
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Objects;
+
+/**
+ * @author boris.brinza
+ */
+public class AocHelper {
+
+  public static String readInput(final String path) {
+    final BufferedReader reader =
+        new BufferedReader(new InputStreamReader(
+            Objects.requireNonNull(AocHelper.class.getResourceAsStream(path))));
+    String s = null;
+    final StringBuilder ret = new StringBuilder();
+    try {
+      while ((s = reader.readLine()) != null) {
+        ret.append(s).append("\n");
+      }
+    } catch (Exception e) {
+      System.err.println("Cannot read file:" + path + ", error:" + e.toString());
+      return null;
+    }
+    //remove last /n
+
+    return  ret.substring(0, ret.length() - 1);
+
+  }
+
+  public static String[] readInputToLines(final String path) {
+    return Objects.requireNonNull(AocHelper.readInput(path)).split(System.lineSeparator());
+  }
+
+
+
+  public static char[][] readInputToMat(final String path) {
+    final String[] lines = Objects.requireNonNull(AocHelper.readInput(path))
+        .split(System.lineSeparator());
+    return Arrays.stream(lines)
+        .map(String::toCharArray)
+        .toArray(char[][]::new);
+
+  }
+
+}
