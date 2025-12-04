@@ -25,12 +25,13 @@ public class Day4 {
   }
 
   private boolean isMoveable(char[][] input, int c, int r) {
-    int sibCount = 0;
-    int maxC = input.length - 1;
-    int maxR = input[0].length - 1;
     if (input[r][c] == '.') {
       return false;
     }
+
+    int sibCount = 0;
+    int maxC = input.length - 1;
+    int maxR = input[0].length - 1;
     //<
     sibCount += (c > 0 && input[r][c - 1] == '@' ? 1 : 0);
     //>
